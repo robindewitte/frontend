@@ -1,0 +1,48 @@
+#login {
+    position: relative;
+    height: 100vh;
+  }
+  
+  form {
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .error {
+    margin: 15px 0 0 0;
+    text-align: left;
+  }
+  
+  h2.title {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  main {
+    background-color: #f1f1f1;
+  }
+  
+  @media only screen and (max-width: 1200px) {}
+  
+  @media only screen and (max-width: 992px) {}
+  
+  @media only screen and (max-width: 768px) {}
+  
+  @media only screen and (max-width: 480px) {}
+  
+  @media only screen and (max-width: 320px) {}

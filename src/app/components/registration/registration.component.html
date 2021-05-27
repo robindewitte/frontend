@@ -1,0 +1,41 @@
+<main id="login">
+    <form class="card center" autocomplete="off" name="form" (ngSubmit)="register()" #f="ngForm" novalidate>
+        <div class="row">
+            <h2 class="title">Register Account</h2>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input id="username" class="form-control" type="text" name="username"
+                        [(ngModel)]="formContent.username" ngDefaultControl #username="ngModel" placeholder="Username:"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input id="email" class="form-control" type="text" name="email"
+                        [(ngModel)]="formContent.email" ngDefaultControl #email="ngModel" placeholder="email:"
+                        required>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input id="password" class="form-control" type="text" name="password"
+                        [(ngModel)]="formContent.password" ngDefaultControl #password="ngModel" placeholder="Password:"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input id="passwordConfirm" class="form-control" type="text" name="passwordConfirm"
+                        [(ngModel)]="formContent.passwordConfirm" ngDefaultControl #passwordConfirm="ngModel"
+                        placeholder="Password Confirmation:" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn" type="submit" title="Register new account">Register</button>
+                <p class="error">{{ErrorMessage}}</p>
+            </div>
+        </div>
+    </form>
+</main>

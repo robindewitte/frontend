@@ -1,0 +1,21 @@
+<main id="login">
+
+    <form class="card center" autocomplete="off" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <h2 class="title">Twatter</h2>
+      <div class="input-field" [ngClass]="{ 'has-error': f.submitted}">
+        <input type="text" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+        <label for="username">username</label>
+        <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+      </div>
+      <div class="input-field" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+        <label for="password">Password</label>
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+      </div>
+      <div class="row no-margin">
+        <button [disabled]="loading" id="submit" class="btn">Login</button>
+        <p class="error">{{ErrorMessage}}</p>
+      </div>
+    </form>
+    <button (click)="ToRegister()" >Register</button>
+  </main>
