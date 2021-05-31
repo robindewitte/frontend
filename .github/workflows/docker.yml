@@ -17,4 +17,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: robindewitte/frontend
           tag_with_ref: true
-          build_args: "ANGULAR_APP_API_GATEWAY=${{ secrets.GATEWAY_URL }}"
+          build_args: "ANGULAR_APP_APIGATEWAY=${{ secrets.GATEWAY_URL }}"
