@@ -1,5 +1,5 @@
 # build stage
-FROM node:lastest as node
+FROM node:lts-alpine as build-stage
 WORKDIR /app
 
 ARG ANGULAR_APP_APIGATEWAY="http://localhost:8123"
