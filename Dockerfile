@@ -6,7 +6,7 @@ ARG ANGULAR_APP_APIGATEWAY="http://localhost:8123"
 ENV ANGULAR_APP_API_GATEWAY ${ANGULAR_APP_APIGATEWAY}
 
 COPY package*.json ./
-RUN npm i -g @angular/cli
+RUN npm install
 COPY . .
 RUN npm run build
 
