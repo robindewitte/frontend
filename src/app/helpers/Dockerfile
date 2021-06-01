@@ -2,7 +2,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /app
 
 ARG ANGULAR_APP_APIGATEWAY="http://localhost:8123"
-ENV ANGULAR_APP_API_GATEWAY ${VUE_APP_APIGATEWAY}
+ENV ANGULAR_APP_API_GATEWAY ${ANGULAR_APP_APIGATEWAY}
 
 COPY package*.json ./
 RUN npm install
