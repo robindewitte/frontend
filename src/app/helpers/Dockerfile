@@ -1,4 +1,4 @@
-FROM node:10-alpine as build-stage
+FROM node:lts-alpine as build-stage
 WORKDIR /app
 
 ARG ANGULAR_APP_APIGATEWAY="http://localhost:8123"
@@ -11,6 +11,7 @@ RUN npm run build --prod
 
 # production stage
 FROM nginx:1.17.1-alpine as production-stage
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 8083
 CMD ["nginx", "-g", "daemon off;"]
