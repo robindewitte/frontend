@@ -13,6 +13,6 @@ RUN npm run build --prod
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist/frontend /usr/share/nginx/html
+COPY --from=build-stage /app/dist/twatter /usr/share/nginx/html
 EXPOSE 8083
 CMD ["nginx", "-g", "daemon off;"]
