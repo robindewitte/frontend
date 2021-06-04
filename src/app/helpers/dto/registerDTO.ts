@@ -3,7 +3,7 @@ export class RegisterDTO{
         public username: string = "",
         public emailAdress: string = "",
         public password: string = "",
-        public passwordConfirm: string = "",
+        public confirmPassword: string = "",
     ){}
     
 }

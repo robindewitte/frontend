@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          if(data.includes("FOUT!") ){
+          if(data == "FOUT! De ingevoerde gegevens voldoen niet aan de eisen."){
             alert(data);
           }
           else{

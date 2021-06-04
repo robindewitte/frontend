@@ -13,7 +13,7 @@ export class Restdata {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' +sessionStorage.getItem('token'),
-      'Access-Control-Allow-Origin': 'http://localhost:8123',
+      'Access-Control-Allow-Origin': 'http://localhost:8123/',
       'Access-Control-Allow-Credentials': 'true'
     })
   };
