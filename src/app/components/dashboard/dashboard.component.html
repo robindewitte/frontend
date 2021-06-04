@@ -11,11 +11,11 @@
     </div>
 
     <div id="searchmessage">
-        <form class="card center" autocomplete="off" name="formsearch" (ngSubmit)="f.formsearch.valid && postMessage()" #f="ngForm" novalidate>
+        <form class="card center" autocomplete="off" name="formsearch" (ngSubmit)="searchMessage()" #f="ngForm" novalidate>
             <label for="searchmessage">Zoek</label>
             <input type="text" id="search" name="searchmessage" [(ngModel)]="searchModel.searchMessage" required />
             <button id="submit" class="btn">Zoek</button>
             <p class="error">{{ErrorMessage}}</p>
-            </form>
-            <ul *ngFor="let message of messages"></ul>
+        </form>
+        <li *ngFor="let messagesString of messagesStrings"></li>
     </div>

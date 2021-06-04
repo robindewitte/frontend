@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   model: any = {};
   ErrorMessage = "";
   messages: Array<PostDTO> = [];
+  messagesStrings: Array<String> = [];
   searchModel: any = {};
 
   constructor(private postService: PostService) { }
@@ -23,8 +24,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getUserMessages(localStorage.getItem("username")).subscribe(
       data => {
-        if(data.response != null ){
+        if(data != null ){
           this.messages = data;
+          this.messages.forEach(message => this.messagesStrings.push(message.postMessage + message.postMessage + message.username));
+          console.log(this.messagesStrings);
         }else{
           this.ErrorMessage = "geen berichten gevonden";
         }   
@@ -41,8 +44,8 @@ export class DashboardComponent implements OnInit {
     dto.username = localStorage.getItem("username");
     this.postService.postMessage(dto).subscribe(
       data => {
-        if(data.response.includes("FOUT!") ){
-          alert(data.response);
+        if(data.includes("FOUT!") ){
+          alert(data);
         }else{
           this.ErrorMessage = "geplaatst";
         }   
