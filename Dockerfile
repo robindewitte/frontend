@@ -14,6 +14,6 @@ RUN npm run build --prod
 # production stage
 FROM nginx:1.17.1-alpine as production-stage
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY --from=build-stage /app/dist/twatter /usr/share/nginx/html
 EXPOSE 8082
 CMD ["nginx", "-g", "daemon off;"]
