@@ -1,7 +1,7 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 
-ARG ANGULAR_APP_APIGATEWAY="http://172.29.80.1:8123"
+ARG ANGULAR_APP_APIGATEWAY="http://localhost:8123"
 ENV ANGULAR_APP_API_GATEWAY ${ANGULAR_APP_APIGATEWAY}
 
 COPY package*.json ./
