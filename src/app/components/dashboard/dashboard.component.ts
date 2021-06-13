@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostDTO} from "src/app/helpers/dto/postDTO";
 import {PostService} from "src/app/services/post.service";
 import { identifierModuleUrl } from '@angular/compiler';
+import { MotivatieService } from 'src/app/services/motivatie.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
   messagesStrings: Array<String> = [];
   searchModel: any = {};
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private motievatieService: MotivatieService) { }
 
 
   //ben wel bekend met het feit dat iemand met gebruikersnaam FOUT! altijd een error aanroept ik neem dat verlies voor nu
@@ -67,6 +68,20 @@ export class DashboardComponent implements OnInit {
         error => {
           this.ErrorMessage = "Something went wrong! Check your internet connection";
         });
+  }
+
+  motivateMe(){
+    this.motievatieService.motivatie(localStorage.getItem("username")).subscribe(
+      data => {
+        if(data.includes("FOUT!") ){
+          alert(data);
+        }else{
+          this.ErrorMessage = "is genoteerd";
+        }   
+      },
+      error => {
+        this.ErrorMessage = "Something went wrong! Check your internet connection";
+      });
   }
 
 }
