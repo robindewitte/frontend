@@ -32,4 +32,5 @@ export class MotivatieService {
   public motivatie(username: String) {
     return (this.http.post<any>(this.restData.getUrl('api/motivatie/motivatie'), username,
     )).pipe(catchError(this.handleError));
+  }
 }
