@@ -80,6 +80,7 @@ export class DashboardComponent implements OnInit {
           alert(data);
         }else{
           this.ErrorMessage = "is genoteerd";
+           window.open("https://motivatiebutton20210611153721.azurewebsites.net/api/Motivatie?", '_blank');
         }   
       },
       error => {
