@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
     dto.username = localStorage.getItem("username");
     this.motievatieService.motivatie(dto).subscribe(
       data => {
-        if(data.respone == null ){
+        if(data == null ){
           alert("iets gaat fout");
         }else{
           this.ErrorMessage = "is genoteerd";
