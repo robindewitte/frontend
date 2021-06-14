@@ -2,8 +2,9 @@ import {HttpHeaders} from "@angular/common/http";
 
 export class Restdata {
 
-  //local http://localhost:5001
+
   private url = 'http://192.168.178.39:30001/';
+
 
   public httpOptionsToken = { 
         headers: new HttpHeaders().set('Authorization', 'Bearer ' +sessionStorage.getItem('token')).set('Content-Type', 'application/json') 

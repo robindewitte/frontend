@@ -5,6 +5,7 @@ import { Restdata } from "../helpers/restdata";
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Util } from "../helpers/util";
+import { MotivatieDTO } from '../helpers/dto/motivatieDTO';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -29,8 +30,8 @@ export class MotivatieService {
   }
 
   //send motivatie request to backen
-  public motivatie(username: String) {
-    return (this.http.post<any>(this.restData.getUrl('api/motivatie/motivatie'), username,
+  public motivatie(motivatieDTO: MotivatieDTO) {
+    return (this.http.post<any>(this.restData.getUrl('api/motivatie/motivatie'), motivatieDTO,
     )).pipe(catchError(this.handleError));
   }
 }

@@ -4,6 +4,7 @@ import { PostDTO} from "src/app/helpers/dto/postDTO";
 import {PostService} from "src/app/services/post.service";
 import { identifierModuleUrl } from '@angular/compiler';
 import { MotivatieService } from 'src/app/services/motivatie.service';
+import { MotivatieDTO } from 'src/app/helpers/dto/motivatieDTO';
 
 @Component({
   selector: 'app-dashboard',
@@ -71,7 +72,9 @@ export class DashboardComponent implements OnInit {
   }
 
   motivateMe(){
-    this.motievatieService.motivatie(localStorage.getItem("username")).subscribe(
+    let dto = new MotivatieDTO();
+    dto.username = localStorage.getItem("username");
+    this.motievatieService.motivatie(dto).subscribe(
       data => {
         if(data.includes("FOUT!") ){
           alert(data);
