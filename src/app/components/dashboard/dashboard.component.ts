@@ -76,8 +76,8 @@ export class DashboardComponent implements OnInit {
     dto.username = localStorage.getItem("username");
     this.motievatieService.motivatie(dto).subscribe(
       data => {
-        if(data.includes("FOUT!") ){
-          alert(data);
+        if(data.respone == null ){
+          alert("iets gaat fout");
         }else{
           this.ErrorMessage = "is genoteerd";
            window.open("https://motivatiebutton20210611153721.azurewebsites.net/api/Motivatie?", '_blank');
