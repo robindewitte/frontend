@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { PostDTO} from "src/app/helpers/dto/postDTO";
 import {PostService} from "src/app/services/post.service";
 import { identifierModuleUrl } from '@angular/compiler';
+import { MotivatieService } from 'src/app/services/motivatie.service';
+import { MotivatieDTO } from 'src/app/helpers/dto/motivatieDTO';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +18,7 @@ export class DashboardComponent implements OnInit {
   messagesStrings: Array<String> = [];
   searchModel: any = {};
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private motievatieService: MotivatieService) { }
 
 
   //ben wel bekend met het feit dat iemand met gebruikersnaam FOUT! altijd een error aanroept ik neem dat verlies voor nu
@@ -67,6 +69,23 @@ export class DashboardComponent implements OnInit {
         error => {
           this.ErrorMessage = "Something went wrong! Check your internet connection";
         });
+  }
+
+  motivateMe(){
+    let dto = new MotivatieDTO();
+    dto.username = localStorage.getItem("username");
+    this.motievatieService.motivatie(dto).subscribe(
+      data => {
+        if(data == null ){
+          alert("iets gaat fout");
+        }else{
+          this.ErrorMessage = "is genoteerd";
+           window.open("https://motivatiebutton20210611153721.azurewebsites.net/api/Motivatie?", '_blank');
+        }   
+      },
+      error => {
+        this.ErrorMessage = "Something went wrong! Check your internet connection";
+      });
   }
 
 }
